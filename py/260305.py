@@ -37,6 +37,7 @@ print(name)
 # 3번. 다음 JSON 문자열을 파이썬 객체로 변환하고 반복문으로 name만 출력해라.
 
 import json
+from tkinter.filedialog import test
 
 data = '[{"name": "choi", "age": 40}, {"name": "jung", "age": 22}]'
 
@@ -45,5 +46,35 @@ for user in result:
     print(user['name'])
 
 #===============================================================
+# DAY3
+# 1번. 파일 users.txt 생성하고 아래 내용 저장해라
 
-test
+with open('py/users.txt', 'w') as f:
+    f.write('name,age\n')
+    f.write('kim,30\n')
+    f.write('lee,25\n')
+    f.write('park,28\n')
+
+with open('py/users.txt', 'r') as f:
+    for line in f:
+        print(line.strip())
+
+#---------------------------------------------------------------
+# 2번. users.txt 파일에서 나이가 28 이상인 사람의 name만 출력해라
+
+with open('py/users.txt', 'r') as f:
+    for line in f:
+        name, age = line.strip().split(',') # strip()으로 줄바꿈 제거
+        if age.isdigit() and int(age) >= 28: # isdigit() → 문자열 숫자 체크, int 변환 후 조건 확인
+            print(f"name: {name}, age: {age}")
+
+#---------------------------------------------------------------
+#3번 파일 읽을 때 나이가 숫자가 아닐 경우 에러를 무시하고 넘어가라.
+with open('py/users.txt', 'r') as f:
+    for line in f:
+        name, age = line.strip().split(',')
+        try:
+            if age.isdigit():  # 숫자인지 체크
+                print(f"name: {name}, age: {age}")
+        except ValueError:
+            continue
