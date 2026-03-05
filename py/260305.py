@@ -78,3 +78,56 @@ with open('py/users.txt', 'r') as f:
                 print(f"name: {name}, age: {age}")
         except ValueError:
             continue
+
+#===============================================================
+# DAY4
+# 위 users.txt 파일 읽어서 pandas DataFrame으로 만들기
+# 나이 28 이상인 사람만 출력
+# 결과를 users_filtered.csv로 저장
+
+import pandas as pd
+
+df = pd.read_csv('py/users.txt')
+filtered_df = df[df['age'] >= 28]
+print(filtered_df)
+
+filtered_df.to_csv('py/users_filtered.csv', index=False)
+
+#===============================================================
+# DAY5
+# users.txt 파일 읽기 → DataFrame
+# 나이가 28 이상이거나 이름이 'lee'인 사람만 출력
+# 만약 나이가 없으면 평균으로 채우기
+# 결과 users_day5.csv로 저장
+
+df = pd.read_csv('py/users.txt')
+filtered_df = df[(df['age'] >= 28) | (df['name'] == 'lee')]
+print(filtered_df)
+
+filtered_df.to_csv('py/users_day5.csv', index=False)
+
+#===============================================================
+# DAY6
+#1번 users_missing.csv 나이(age)가 비어 있는 경우 평균 나이로 채워라
+
+df = pd.read_csv('py/users_missing.csv')
+mean_age = df['age'].mean()
+df['age'].fillna(mean_age, inplace=True)
+print(df)
+
+#---------------------------------------------------------------
+#2번 위 DataFrame에서 department가 비어 있는 행이 있으면 삭제, 삭제 후 출력
+
+df = pd.read_csv('py/users_missing.csv')
+df.dropna(subset=['age'], inplace=True)
+print(df)
+
+#---------------------------------------------------------------
+#3번 DataFrame에서 각 컬럼별 결측치 개수 확인, 결측치가 있는 컬럼의 비율 확인 (0~1)
+
+df = pd.read_csv('py/users_missing.csv')
+missing_counts = df.isnull().sum()
+missing_ratios = df.isnull().mean()
+
+print("Missing counts:\n", missing_counts)
+print("Missing ratios:\n", missing_ratios)
