@@ -111,15 +111,15 @@ filtered_df.to_csv('py/users_day5.csv', index=False)
 #1번 users_missing.csv 나이(age)가 비어 있는 경우 평균 나이로 채워라
 
 df = pd.read_csv('py/users_missing.csv')
-mean_age = df['age'].mean()
-df['age'].fillna(mean_age, inplace=True)
+mean_age = df['age'].mean() # Pandas에서 age 컬럼의 평균
+df['age'].fillna(mean_age, inplace=True) # NaN 값을 mean_age로 대체
 print(df)
 
 #---------------------------------------------------------------
 #2번 위 DataFrame에서 department가 비어 있는 행이 있으면 삭제, 삭제 후 출력
 
 df = pd.read_csv('py/users_missing.csv')
-df.dropna(subset=['age'], inplace=True)
+df.dropna(subset=['age'], inplace=True) # age 컬럼에서만 NaN 체크, NaN이 있는 행 삭제
 print(df)
 
 #---------------------------------------------------------------
