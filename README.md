@@ -41,3 +41,18 @@ Python, Pandas, File I/O, JSON 처리 연습을 위한 코드 정리입니다.
 2. department 컬럼을 기준으로 직원 정보와 부서 정보 merge
 3. bonuses.json 데이터를 읽어 emp_id 기준으로 직원 데이터와 merge 후 보너스 금액 계산
 4.최종 DataFrame을 Excel 파일(employees_final.xlsx)로 저장
+
+[Day9~10]
+1. Extract
+- 파일 읽기
+- CSV / JSON
+
+2. Transform
+- merge
+- 결측치 처리
+- 파생컬럼 생성
+- groupby 분석
+
+3. Load
+- CSV
+- Excel 저장
