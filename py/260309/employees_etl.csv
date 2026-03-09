@@ -1,0 +1,5 @@
+emp_id,name,department,salary,manager,bonus_percent,bonus_amount,total_compensation
+1,kim,A,5000.0,alice,0.1,500.0,5500.0
+3,park,A,5500.0,alice,0.07,385.00000000000006,5885.0
+4,choi,B,6000.0,bob,0.08,480.0,6480.0
+6,han,B,5500.0,bob,0.09,495.0,5995.0
