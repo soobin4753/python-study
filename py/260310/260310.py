@@ -9,6 +9,7 @@ import pandas as pd
 
 log_df = pd.read_json('py/260310/logs.json', encoding='utf-8')
 purchase_df = log_df[log_df['action'] == 'purchase']
+print(f"purchase_df :\n{purchase_df}")
 user_purchase_summary = purchase_df.groupby('user')['amount'].sum().reset_index()
 print(f"user_purchase_summary 1 :\n{user_purchase_summary}")
 user_purchase_summary = user_purchase_summary.sort_values(by='amount', ascending=False)
