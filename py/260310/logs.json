@@ -1,0 +1,7 @@
+[
+ {"user":"kim","action":"login","time":"2026-03-01"},
+ {"user":"lee","action":"purchase","amount":100},
+ {"user":"kim","action":"purchase","amount":200},
+ {"user":"park","action":"login"},
+ {"user":"kim","action":"logout"}
+]
